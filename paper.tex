@@ -4,7 +4,8 @@
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath,amssymb}
 
-\usepackage{indentfirst}
+\usepackage{tikz}
+\usepackage{parskip}
 
 \title{An Incomplete Overview of some Applications of Game Theory to Patient Flow}
 
@@ -40,6 +41,13 @@
 \email{komendai@cf.ac.uk}
 }
 
+\author{
+\name{Rob Shone}
+\institute{Cardiff University}
+\iaddress{Cardiff, UK}
+\email{shoner@cf.ac.uk}
+}
+
 \vspace{8mm}
 
 \begin{abstract}
@@ -68,10 +76,55 @@ Patient Flow, Game Theory, Queueing Theory
 
 \section{Choosing queues}
 
-\begin{itemize}
-    \item PoA in healthcare paper;
-    \item Rob's work
-\end{itemize}
+This section describes how patient choices between various congestion affected services may be modelled.
+In particular the situation shown diagrammatically in Figure \ref{fig:choices} is considered: patients have a choice amongst $M/M/c$ queues.
+
+\begin{figure}[!hbtp]
+Show diagram.
+\end{figure}
+
+There are two approaches to solving this problem: assuming that patients observe or not the system states before choosing a facility.
+A rigorous comparison of these two approaches for individuals choosing to join an $M/M/1$ queue is given in \cite{}.
+
+An unobservable study is given in \cite{} where routing games \cite{Rouhgharden} are used to study the system described.
+The routing game used is shown in \ref{fig:routinggame}.
+
+\begin{figure}[!hbtp]
+Show routing game image.
+\end{figure}
+
+It can be shown that the cost for any given flow $\lambda$ (denoting the amount of traffic from source $i$ to facility $j$) corresponds to...
+
+\begin{equation}
+C(\lambda)=\sum_{i=1}^m\alpha_i\sum_{j}^nd_{ij}\lambda_{ij}+\sum_{j=1}^n\sum_{i=1}^m\lambda_{ij}w_j\left(\sum_{i=1}^m\lambda_{ij}\right)+\sum_{i=1}^m\beta_i\left(\Lambda_i-\sum_{j=1}^n\lambda_{ij}\right)
+\label{C}\end{equation}
+
+Obtaining the Nash flow: ie the equilibrium behaviour.
+
+\begin{equation}
+\Phi(\lambda)=\sum_{i=1}^m\alpha_i\sum_{j}^nd_{ij}\lambda_{ij}+\sum_{j=1}^n\int_0^{\sum_{i=1}^m\lambda_{ij}}w_j(x)dx+\sum_{i=1}^m\beta_i\left(\Lambda_i-\sum_{j=1}^n\lambda_{ij}\right)
+\label{Phi}\end{equation}
+
+To be able to obtain the PoA for a given instance the following mathematical program must be solved:
+
+$$\begin{array}{l@{\hspace{2cm}}l}\text{OPTMP:}&\text{NASHMP:}\\
+\text{minimise }(\ref{C})&\text{minimise }(\ref{Phi})
+\end{array}$$
+such that:
+\begin{equation}
+\sum_{j=1}^n\lambda_{ij}\leq\Lambda_{i}\text{ for all }i\in[m]\label{constraint 1}
+\end{equation}
+\begin{equation}
+\lambda_{ij}\in\mathbb{R}^{m\times n}_{\geq 0}\text{ for all }i\in[m],\;j\in[n]\label{constraint 2}
+\end{equation}
+\begin{equation}
+\sum_{i=1}^m\lambda_{ij}<c_j\mu_j\text{ for all }j\in[n]\label{constraint 3}
+\end{equation}
+
+
+The constant $\alpha_i\in\mathbb{R}_{\geq0}$ is simply a weighting statistic for the relative importance of travel distances to the other factors (once again allowing for this coefficient to be dependent on population partitioning).
+
+In \cite{} various theoretical results are proven.
 
 \section{CCU Work}
 
