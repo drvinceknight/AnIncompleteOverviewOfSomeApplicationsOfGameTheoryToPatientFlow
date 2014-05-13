@@ -59,7 +59,11 @@
 \vspace{8mm}
 
 \begin{abstract}
-Describe paper.
+It is well observed that individual behaviour can have an effect on the efficiency of queueing systems.
+The impact of this behaviour on the economic efficiency of public services is considered in this paper where we present results concerning the congestion related implications of decisions made by individuals when choosing between facilities.
+The work presented has important managerial implications at a public policy level when considering the effect of allowing individuals to choose between providers.
+We show that in general the introduction of choice in an already inefficient system will not have a negative effect.
+Introducing choice in a system that copes with demand will have a negative effect.
 \end{abstract}
 
 \bigskip
@@ -75,12 +79,26 @@ Patient Flow, Game Theory, Queueing Theory
 
 \section{Introduction}
 
-\begin{itemize}
-    \item Review GT in HC in general (small);
-    \item Review congestion type games;
-    \item PoA;
-    \item Structure.
-\end{itemize}
+What damage do the selfish choices of some afflict on to the welfare of all? The work presented in this paper answers this question in the context of public service systems.
+
+There is a substantial quantity of literature on the subject of equilibrium behaviour of a queueing system where congestion is a factor influencing behaviour \cite{Adler1969,Bell1983,Edelson1971,Knudsen1972,Luski1976,Naor1969,Yechiali1972}. This can be traced back to a series of short communications between Leeman \cite{Leeman1964,Leeman1965} and Saaty \cite{Saaty1965}. This paper builds on this literature by considering the problem of public service systems. For most public services, congestion is a negative aspect of service quality. Examples of this are healthcare systems (waiting lists), transports systems (traffic jams) and/or schools (overcrowding of class rooms).
+
+The degree of central control that should be exercised is a very important question to be considered by governments and/or policy makers. What is the effect of allowing individuals to choose service provider?
+
+Of course, the motivation for the introduction of choice is to create competition in the hope that this would improve overall service quality. The aim of the work presented here is to use a game theoretical approach to measure the immediate effect of choice (i.e. prior to the effect of competition). The approach proposed is based on a measure called \emph{the price of anarchy} \cite{Chau2003,Cole2006,Correa2008,Gilboa-Freedman2009,Haviv2007,Musacchio2009,Roughgarden2003,Roughgarden2005,Roughgarden2004,Skinner2010}. First introduced in \cite{Koutsoupias1999} (a conference paper that has been reprinted in \cite{Koutsoupias2009}), the price of anarchy is the ratio of the costs of the worst possible Nash equilibrium and the social optimum, and can therefore be interpreted as a measure of the efficiency of a system.
+
+Game theory is the mathematical study of interactive decision making between rational decision makers \cite{Maschler2013}.
+A game is a description of strategic interactions that includes the constraints on the actions that the players can take and on the players' interests.
+
+Most research where game theory is applied in healthcare has mainly concentrated on Emergency Departments (EDs) and how to deal with diversions of patients and ambulances.
+In \cite{Hagtvedt2009} cooperative strategies for hospitals are considered, in order to reduce occurrences when ambulances are turned away due to the ED being full.
+In \cite{Deo2011} a queueing network model of two EDs is proposed to study the network effect of ambulance diversion.
+Each ED aims to minimise the expected waiting time of its patients (walk-ins and ambulances) and chooses its diversion threshold based on the number of patients at its location. Decentralised decision making in the network is modelled as a non-cooperative game.
+
+Some other work that has not concentrated on EDs, but has been applied to healthcare includes: \cite{Knight2013}, where results concerning the congestion related implications of decisions made by patients when choosing between healthcare facilities were presented. In \cite{Howard2002} a model of the accept/reject decision for transplant organs is developed.
+
+In the wider intersection of game theory and queueing theory (where this work lies) papers that consider price and/or capacity include: \cite{Allon2007, Cachon2002,  Cachon2007, Kalai1992, Levhari1978}. In these models, the choice of price/or capacity determines the arrival rate for each firm; this is similar to the approach taken in this paper.
+
 
 \section{Choosing queues}
 
@@ -88,7 +106,10 @@ This section describes how patient choices between various congestion affected s
 In particular the situation shown diagrammatically in Figure \ref{fig:choices} is considered: patients have a choice amongst $M/M/c$ queues.
 
 \begin{figure}[!hbtp]
-Show diagram.
+\begin{center}
+\includegraphics[width=.7\textwidth]{./Images/Hospital_Choices.pdf}
+\end{center}
+\caption{Routing patients from $m$ hospitals to $n$ services.}\label{fig:choices}
 \end{figure}
 
 There are two approaches to solving this problem: assuming that patients observe or not the system states before choosing a facility.
@@ -98,7 +119,10 @@ An unobservable study is given in \cite{} where routing games \cite{Rouhgharden}
 The routing game used is shown in \ref{fig:routinggame}.
 
 \begin{figure}[!hbtp]
-Show routing game image.
+\begin{center}
+\includegraphics[width=.7\textwidth]{./Images/Hospital_Routing_Game.pdf}
+\end{center}
+\caption{Routing game $m$ hospitals to $n$ services.}\label{fig:routinggame}
 \end{figure}
 
 It can be shown that the cost for any given flow $\lambda$ (denoting the amount of traffic from source $i$ to facility $j$) corresponds to...
@@ -135,7 +159,10 @@ The constant $\alpha_i\in\mathbb{R}_{\geq0}$ is simply a weighting statistic for
 In \cite{} various theoretical results are proven. With regards to the effect of worth of service on the PoA but also with regards to demand. The profile of Figure \ref{fig:poaprofile} is shown to hold in general.
 
 \begin{figure}[!hbtp]
-Pic
+\begin{center}
+\includegraphics[width=.7\textwidth]{./Images/PoAPlotForSimpleDiagram.pdf}
+\end{center}
+\caption{General profile of PoA.}\label{fig:poaprofile}
 \end{figure}
 
 To consider systems where individuals are able to observe the system there are two approaches: the first is to use a simulation based approach that allows individuals to choose their most desirable queue.
@@ -267,30 +294,35 @@ $\square$
 \end{center}
 \end{figure}
 
-\section{EU and EMV Interface}
-
-Describe simple Markov model for hospital.
-Describe routing game model for thing.
-
 \section{Conclusions}
 
-\bigskip
-\noindent{\bf Refer\^encias}
+\begin{itemize}
+    \item Describe potential
+    \item Describe further work
+    \item Discuss potential for heuristic approaches
+\end{itemize}
 
-\noindent \textbf {Anna, A.} (1996), Comunica\c c\~ao, \textit{Atas do XXVIII SBPO}, 123-134.
+\newpage
+\bibliographystyle{plain}
+\bibliography{library.bib}
 
-\noindent \textbf{Gates, B.}, \textit{Um Livro Muito Bom}, Editor, Local, 2003.
-
-\noindent  \textbf{Pel\'e, E. N. e Rom\'ario, R. R.}, Exemplo de artigo em livro, em Windows, P. T. e Linux, V. G. (Eds.),
-\textit{Colet\^ania de Artigos},  Editor, Local, 123-133, 2004.
-
-\noindent  \textbf{Silva, A. B., Souza, C. D. e Santos, E. F.}, T\'\i tulo de um relat\'orio t\'ecnico dispon\'\i vel na Internet,
-\textit{ Relat\'orios de Pesquisa em Engenharia de Produ\c c\~ao}, n. 4,  Universidade Z,
-1999
-
-\noindent{(www.universidade.br/rel, 4, 2001.}
-
-\noindent  \textbf{Smith, S. e Jones, J.} (2002), A paper on Operations Research, \textit{Pesquisa Operacional},
-32, 5-44.
+%\bigskip
+%\noindent{\bf Refer\^encias}
+%
+%\noindent \textbf {Anna, A.} (1996), Comunica\c c\~ao, \textit{Atas do XXVIII SBPO}, 123-134.
+%
+%\noindent \textbf{Gates, B.}, \textit{Um Livro Muito Bom}, Editor, Local, 2003.
+%
+%\noindent  \textbf{Pel\'e, E. N. e Rom\'ario, R. R.}, Exemplo de artigo em livro, em Windows, P. T. e Linux, V. G. (Eds.),
+%\textit{Colet\^ania de Artigos},  Editor, Local, 123-133, 2004.
+%
+%\noindent  \textbf{Silva, A. B., Souza, C. D. e Santos, E. F.}, T\'\i tulo de um relat\'orio t\'ecnico dispon\'\i vel na Internet,
+%\textit{ Relat\'orios de Pesquisa em Engenharia de Produ\c c\~ao}, n. 4,  Universidade Z,
+%1999
+%
+%\noindent{(www.universidade.br/rel, 4, 2001.}
+%
+%\noindent  \textbf{Smith, S. e Jones, J.} (2002), A paper on Operations Research, \textit{Pesquisa Operacional},
+%32, 5-44.
 
 \end{document}
