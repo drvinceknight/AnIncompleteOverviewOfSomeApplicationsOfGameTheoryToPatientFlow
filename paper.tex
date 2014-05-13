@@ -82,28 +82,28 @@ Patient Flow, Game Theory, Queueing Theory
 
 \section{Introduction}
 
-What damage do the selfish choices of some afflict on to the welfare of all? The work presented in this paper answers this question in the context of public service systems.
+Understanding the effect of selfish individuals in queueing systems can be traced back to a series of short communications between Leeman \cite{Leeman1964,Leeman1965} and Saaty \cite{Saaty1965}.
 
-There is a substantial quantity of literature on the subject of equilibrium behaviour of a queueing system where congestion is a factor influencing behaviour \cite{Adler1969,Bell1983,Edelson1971,Knudsen1972,Luski1976,Naor1969,Yechiali1972}. This can be traced back to a series of short communications between Leeman \cite{Leeman1964,Leeman1965} and Saaty \cite{Saaty1965}. This paper builds on this literature by considering the problem of public service systems. For most public services, congestion is a negative aspect of service quality. Examples of this are healthcare systems (waiting lists), transports systems (traffic jams) and/or schools (overcrowding of class rooms).
-
-The degree of central control that should be exercised is a very important question to be considered by governments and/or policy makers. What is the effect of allowing individuals to choose service provider?
-
-Of course, the motivation for the introduction of choice is to create competition in the hope that this would improve overall service quality. The aim of the work presented here is to use a game theoretical approach to measure the immediate effect of choice (i.e. prior to the effect of competition). The approach proposed is based on a measure called \emph{the price of anarchy} \cite{Chau2003,Cole2006,Correa2008,Gilboa-Freedman2009,Haviv2007,Musacchio2009,Roughgarden2003,Roughgarden2005,Roughgarden2004,Skinner2010}. First introduced in \cite{Koutsoupias1999} (a conference paper that has been reprinted in \cite{Koutsoupias2009}), the price of anarchy is the ratio of the costs of the worst possible Nash equilibrium and the social optimum, and can therefore be interpreted as a measure of the efficiency of a system.
-
-Game theory is the mathematical study of interactive decision making between rational decision makers \cite{Maschler2013}.
-A game is a description of strategic interactions that includes the constraints on the actions that the players can take and on the players' interests.
+In \cite{Adler1969,Bell1983,Edelson1971,Knudsen1972,Luski1976,Naor1969,Yechiali1972} a variety of models are discussed that obtain optimal and equilibrium behaviour in situations where individuals can choose between a best queue to join.
+Most of the work considers these systems in a theoretical context.
 
 Most research where game theory is applied in healthcare has mainly concentrated on Emergency Departments (EDs) and how to deal with diversions of patients and ambulances.
 In \cite{Hagtvedt2009} cooperative strategies for hospitals are considered, in order to reduce occurrences when ambulances are turned away due to the ED being full.
 In \cite{Deo2011} a queueing network model of two EDs is proposed to study the network effect of ambulance diversion.
-Each ED aims to minimise the expected waiting time of its patients (walk-ins and ambulances) and chooses its diversion threshold based on the number of patients at its location. Decentralised decision making in the network is modelled as a non-cooperative game.
+Each ED aims to minimise the expected waiting time of its patients (walk-ins and ambulances) and chooses its diversion threshold based on the number of patients at its location.
+Decentralised decision making in the network is modelled as a non-cooperative game.
 
-Some other work that has not concentrated on EDs, but has been applied to healthcare includes: \cite{Knight2013}, where results concerning the congestion related implications of decisions made by patients when choosing between healthcare facilities were presented. In \cite{Howard2002} a model of the accept/reject decision for transplant organs is developed.
+The degree of central control that should be exercised is a very important question to be considered by governments and/or policy makers.
+What is the effect of allowing individuals to choose service provider?
 
-In the wider intersection of game theory and queueing theory (where this work lies) papers that consider price and/or capacity include: \cite{Allon2007, Cachon2002,  Cachon2007, Kalai1992, Levhari1978}. In these models, the choice of price/or capacity determines the arrival rate for each firm; this is similar to the approach taken in this paper.
+This is a question that is answered using the Game theoretical concept referred to as the \textit{Price of Anarchy} (PoA).
+The PoA is defined as the ratio of the selfish utility to the optimal utility.
 
+Section \label{sec:choosingqueues} will discuss some PoA analysis applied to individuals choosing between queues.
+Section \label{sec:managingqueues} will discuss similar analysis in the case of selfish behaviour related to the management of queues.
+Section \label{sec:conclusion} will conclude with a summary and thoughts for further work.
 
-\section{Choosing queues}
+\section{Choosing queues}\label{sec:choosingqueues}
 
 This section describes how patient choices between various congestion affected services may be modelled.
 In particular the situation shown diagrammatically in Figure \ref{fig:choices} is considered: patients have a choice amongst $M/M/c$ queues.
@@ -183,7 +183,7 @@ In \cite{} various dynamic programming and approximate dynamic programming techn
 
 In the next section selfish congestion related decisions by managers will be considered.
 
-\section{CCU Work}
+\section{Managing queues}\label{sec:managingqueues}
 
 The main proposition of the work requested by the ABUHB was to develop a mathematical model of bed occupancies at the CCUs at RG and NH.
 After an initial analysis of the data, behavioural aspects became apparent; for example, delaying patients discharge if there was no pressure on CCU beds, or admitting fewer patients if bed occupancy levels were high.
@@ -297,7 +297,7 @@ $\square$
 \end{center}
 \end{figure}
 
-\section{Conclusions}
+\section{Conclusions}\label{sec:conclusion}
 
 \begin{itemize}
     \item Describe potential
