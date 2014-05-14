@@ -125,7 +125,7 @@ Each $M/M/c$ queue corresponds to a (simple) model of a hospital (or indeed any 
 \begin{figure}[!hbtp]
 \begin{center}
 
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
 \node (S1) at (0,0) [circle, draw=blue, fill=blue!5] {$\Lambda_1$};
 \node (S2) at (0,-2) [circle, draw=blue, fill=blue!5] {$\Lambda_2$};
 \node (S3) at (0,-4)  {$\vdots$};
@@ -257,7 +257,29 @@ Most public service systems are however built to match demand which implies a la
 
 \begin{figure}[!hbtp]
 \begin{center}
-\includegraphics[width=.7\textwidth]{./Images/PoAPlotForSimpleDiagram.pdf}
+\begin{tikzpicture}
+
+\draw [->] (0,0) -- (10,0);
+\draw [->] (0,0) -- (0,8);
+\node at (10,0) [below] {$\Lambda$};
+\node at (0,8) [left] {PoA};
+
+%\node (social) at (3,0) [below] {$x^*$};
+%\node (selfish) at (7,0) [below] {$\tilde x$};
+
+\draw [dashed] (3,0) -- (3,8);
+\draw [dashed] (7,0) -- (7,8);
+
+\draw [thick] (0,3) -- (3,3);
+\draw (3,3) edge[thick,out=0,in=-100] (7,6);
+\draw (7,6) edge[thick,out=-80,in=170] (10,4);
+
+\node at (1.5,4) [text width=2cm]{Low level of demand};
+\node at (5,6) {Inefficient system};
+\node at (8.5,2) [text width=2cm]{High level of demand};
+
+\end{tikzpicture}
+
 \end{center}
 \caption{General profile of PoA.}\label{fig:poaprofile}
 \end{figure}
