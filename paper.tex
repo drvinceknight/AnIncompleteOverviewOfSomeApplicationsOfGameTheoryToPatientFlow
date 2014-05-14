@@ -131,7 +131,7 @@ Each $M/M/c$ queue corresponds to a (simple) model of a hospital (or indeed any 
 
 The parameters of this system are shown in Table \ref{tab:parameters}.
 
-\begin{figure}[!hbtp]
+\begin{table}[!hbtp]
 \begin{center}
 \begin{tabular}{cl}
 \toprule
@@ -148,7 +148,7 @@ $\lambda_{ij}$ for $i\in[m],\;j\in[n]$& Traffic from source $i$ to service cente
 \end{tabular}
 \caption{Parameters of model}\label{tab:parameters}
 \end{center}
-\end{figure}
+\end{table}
 
 There are two approaches to modelling this situation: assuming that patients observe or not the system state before choosing a facility.
 A rigorous comparison of these two approaches for individuals choosing to join(or not) an $M/M/1$ queue is given in \cite{shone2013comparisons}.
@@ -223,13 +223,12 @@ In the next section selfish congestion related decisions by managers will be con
 
 \section{Managing queues}\label{sec:managingqueues}
 
-Following the analysis of two critical care units (CCUs) it was found that the only a state dependent queueing model (where the demand rate to each CCU depended on the state of the CCU) would give a valid representation of the system.
-Upon discussion with the managers in question, it was acknowledged that certain behaviours took place.
+Following recent analysis of two critical care units (CCUs) it was found that only a state dependent queueing model (where the demand rate to each CCU depended on the state of the CCU) would give a valid representation of the system.
+Upon discussion with the CCU managers in question, it was acknowledged that certain behavioural control of admissions occurred, even if it was at a subconscious level.
 Indeed when one CCU was at high capacity it was likely to divert patients to the other CCU.
 
 In \cite{knight2014} a normal form game consideration of this situation is given akin to the work on EDs in \cite{Deo2011}.
-
-A pictorial representation of the situation considered is given in Figure \ref{diagramofdiversion} where each CCU can choose a capacity threshold at which to divert patients.
+A pictorial representation of the situation considered is given in Figure \ref{diagramofdiversion} where each CCU can choose a capacity threshold at which to divert patients, and Table \ref{tab:parameters1} shows the parameters used.
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -248,7 +247,29 @@ A pictorial representation of the situation considered is given in Figure \ref{d
 \end{center}
 \end{figure}
 
-The capacity thresholds are denoted as $K_{h}\in\mathbb{Z}$ for $h\in\{1,2\}$, once diverted the arrival rate is modified as shown in Figure \ref{arrivalrateregions}. Note that $0\leq K_h\leq c_h$.
+
+\begin{table}[!hbtp]
+\begin{center}
+\begin{tabular}{cl}
+\toprule
+Parameter & Interpretation\\
+\midrule
+$m\in\mathbb{Z}$& Number of sources\\
+$n\in\mathbb{Z}$& Number of service centers\\
+$\beta\in\mathbb{R}_{\geq 0}^{m}$& Worth of service\\
+$\Lambda\in\mathbb{R}_{\geq 0}^{m}$& Demand rate\\
+$w_j$ for $j\in[n]$& A convex utility function\\
+$d_{ij}$ for $i\in[m],\;j\in[n]$& Distance from source $i$ to service center $j$\\
+$\lambda_{ij}$ for $i\in[m],\;j\in[n]$& Traffic from source $i$ to service center $j$\\
+\toprule
+\end{tabular}
+\caption{Parameters of model}\label{tab:parameters1}
+\end{center}
+\end{table}
+
+The capacity thresholds are denoted as $K_{h}\in\mathbb{Z}$ for $h\in\{1,2\}$, once diverted the arrival rate is modified as shown in Figure \ref{arrivalrateregions}.
+In general it is assumed that $\lambda_h^{(a)}\geq \lambda_{h}^{(b)}, \lambda_{h}^{(c)}\geq \lambda_{h}^{(d)}$ (so that setting a diversion threshold implies a reduction of patient flow).
+Note that $0\leq K_h\leq c_h$.
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -274,8 +295,7 @@ The capacity thresholds are denoted as $K_{h}\in\mathbb{Z}$ for $h\in\{1,2\}$, o
 \end{center}
 \end{figure}
 
-Utilities will be of interest when this queueing theoretical model will be inserted in the game theoretical model.
-Throughput of patients is a natural choice of utility given that most hospitals are financially rewarded per served patient \cite{Pate2009}.
+Throughput of patients is a natural choice of utility for the game theoretic model given that most hospitals are financially rewarded per served patient \cite{Pate2009}.
 For each threshold pair $(K_{1},K_{2})$, the utilisation rate $U_h$ and throughput $T_h$ can easily be obtained for each CCU: $h\in\{\text{1},\text{2}\}$, using the following formulas:
 
 $$U_{h}={{\sum_{n=0}^{c_h} nP^{(h)}(n)}\over{c_{h}}}$$
@@ -283,18 +303,17 @@ $$T_{h}=\mu_h \sum _{n=0}^{c_h} nP^{(h)}(n)$$
 
 where $P^{(h)}=P^{(h)}(K_{1},K_{2})$ is the steady state probability distribution function (obtained from by analysing the Markov chain of Figure \ref{mc}).
 
-The optimisation problem faced by each hospital that gives rise to the game is shown in Figure \ref{model1}.
+The optimisation problem faced by each hospital that gives rise to the game is:
 
-\begin{figure}[!htbp]
-\hspace{2cm}For all $h\in\{\text{1}, \text{2}\}$ minimise:
-$$\left(U_{h}-t\right)^2$$
-\hspace{2cm}Subject to:
-\begin{align}
-0\leq & K_h \leq c_{h}\nonumber\\
-&K_h \in  \mathbb{Z}\nonumber
-\end{align}
-\caption{The optimisation problem underlying the game}\label{model1}
-\end{figure}
+For all $h\in\{\text{1}, \text{2}\}$ minimise:
+\begin{equation}\left(U_{h}-t\right)^2\end{equation}
+Subject to:
+\begin{equation}
+0\leq K_h \leq c_{h}
+\end{equation}
+\begin{equation}
+K_h \in  \mathbb{Z}
+\end{equation}
 
 This game is equivalent to a bi matrix game with restriction to pure strategies where both players aim to get their utilisation as close as possible to a certain target.
 As such a Nash Equilibrium is not guaranteed by traditional game theoretical results \cite{Nash1950}, but based on discussions with ABUHB, long term threshold policies are a realistic consideration.
@@ -303,8 +322,7 @@ In \cite{knight2014} theoretical results are proved that guarentee pure strategy
 Using this and structural properties of the problem a Nash equilibria can be found.
 A variety of numerical results are shown giving the PoA for various scenarios but importantly this module can aid in the informed assignment of a policy $t$.
 Figure \ref{mintargetvdemandmodel2} show the smallest value of $t$ that gives a PoA for a variation of demand ($x=0$ corresponds to the actual demand of the system in consideration).
-We see that a value of $t=.72$ is sensible in our model.
-
+This value was obtained in a model where CCUs could divert demand unless both CCUs are in diversion in which case CCUs must deal with their own demand.
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -313,9 +331,13 @@ We see that a value of $t=.72$ is sensible in our model.
 \end{center}
 \end{figure}
 
+We see that a value of $t=.72$ is recommended for the actual demand of the system.
+While this value does not necessarily give an exact value worth installing as policy the methodology gives a valid approach to indicating a sensible target.
+Furthermore, as demand increases, we see that the recommended target value increases so as to align the goals of the facilities align with the goals of the overall system.
+
 \section{Conclusions}\label{sec:conclusion}
 
-In this manuscript two game theoretic environments applied to healthcare have been considered:
+In this manuscript two game theoretic models applied to healthcare have been considered:
 
 \begin{itemize}
     \item Modelling choices of patients;
@@ -326,7 +348,7 @@ The effect of stochasticity in healthcare systems is well understood and there i
 The effect of individual behaviour is less understood.
 Game theory and Price of Anarchy analysis offers one way to measure this effect.
 
-Importantly, here are a variety of further avenues for this exciting area of research:
+Importantly, there are a variety of further avenues for this exciting area of research:
 
 \begin{itemize}
     \item Games involving players from different parts of a hospital and/or multiple hospitals;
@@ -335,9 +357,8 @@ Importantly, here are a variety of further avenues for this exciting area of res
 \end{itemize}
 
 With regards to methodological approaches there are a variety of tools available.
-
-Firstly, one can model particular systems with parameters corresponding to the strategies of players (similar to the work described in Section \cite{sec:managinghospitals}).
-Secondly, there are specific game theoretic models that can be applied directly to healthcare systems (similar to the work described in Section \cite{sec:choosingqueues}).
+Firstly, one can model particular systems with parameters corresponding to the strategies of players (similar to the work described in Section \ref{sec:managingqueues}).
+Secondly, there are specific game theoretic models that can be applied directly to healthcare systems (similar to the work described in Section \ref{sec:choosingqueues}).
 Finally there are also a variety of novel approaches that can be used such as using evolutionary game theoretic models.
 Specific heuristic approaches relevant to Markov Decision Process in both optimal and selfish calculations offer interesting avenues for research.
 
