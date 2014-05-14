@@ -146,7 +146,7 @@ $d_{ij}$ for $i\in[m],\;j\in[n]$& Distance from source $i$ to service center $j$
 $\lambda_{ij}$ for $i\in[m],\;j\in[n]$& Traffic from source $i$ to service center $j$\\
 \toprule
 \end{tabular}
-\caption{Parameters of model}\label{tab:parameters}
+\caption{Parameters of choice model}\label{tab:parameters}
 \end{center}
 \end{table}
 
@@ -254,16 +254,14 @@ A pictorial representation of the situation considered is given in Figure \ref{d
 \toprule
 Parameter & Interpretation\\
 \midrule
-$m\in\mathbb{Z}$& Number of sources\\
-$n\in\mathbb{Z}$& Number of service centers\\
-$\beta\in\mathbb{R}_{\geq 0}^{m}$& Worth of service\\
-$\Lambda\in\mathbb{R}_{\geq 0}^{m}$& Demand rate\\
-$w_j$ for $j\in[n]$& A convex utility function\\
-$d_{ij}$ for $i\in[m],\;j\in[n]$& Distance from source $i$ to service center $j$\\
-$\lambda_{ij}$ for $i\in[m],\;j\in[n]$& Traffic from source $i$ to service center $j$\\
+$h\in\{1,2\}$& CCU\\
+$c_h$& Capacity of CCU\\
+$K_h$& Cutoff strategy of CCU\\
+$\lambda_{h}^{\text{area}}$& Demand rate as described in Figure \ref{arrivalrateregions}\\
+$\mu_{h}$&Service rate of CCU\\
 \toprule
 \end{tabular}
-\caption{Parameters of model}\label{tab:parameters1}
+\caption{Parameters of CCU model}\label{tab:parameters1}
 \end{center}
 \end{table}
 
