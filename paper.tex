@@ -61,6 +61,7 @@
 \vspace{8mm}
 
 \begin{abstract}
+
 Individual behaviour has an effect on the optimal control of queueing systems.
 This idea sits at the intersection of queueing theory and game theory.
 The role of this paper is to discuss some work in this area applied to healthcare systems.
@@ -83,6 +84,10 @@ Patient Flow, Game Theory, Queueing Theory
 \newpage
 
 \section{Introduction}
+
+The best known work applying Game Theory to Healthcare is Roth's Noble prize winning work \cite{Roth}.
+This work uses matching game algorithms to match medical interns to hospitals.
+The purpose of this paper is to discuss some work relevant to congestion and healthcare.
 
 Understanding the effect of selfish individuals in queueing systems can be traced back to a series of short communications between Leeman \cite{Leeman1964,Leeman1965} and Saaty \cite{Saaty1965}.
 
@@ -286,7 +291,7 @@ $$\left(U_{h}-t\right)^2$$
 
 This game is equivalent to a bi matrix game with restriction to pure strategies where both players aim to get their utilisation as close as possible to a certain target.
 As such a Nash Equilibrium is not guaranteed by traditional game theoretical results \cite{Nash1950}, but based on discussions with ABUHB, long term threshold policies are a realistic consideration.
-In \cite{Knight2014} theoretical results are proved that guarentee pure strategy Nash equilibria in certain cases.
+In \cite{knight2014} theoretical results are proved that guarentee pure strategy Nash equilibria in certain cases.
 
 Using this and structural properties of the problem a Nash equilibria can be found.
 A variety of numerical results are shown giving the PoA for various scenarios but importantly this module can aid in the informed assignment of a policy $t$.
@@ -303,11 +308,34 @@ We see that a value of $t=.72$ is sensible in our model.
 
 \section{Conclusions}\label{sec:conclusion}
 
+In this manuscript two game theoretic environments applied to healthcare have been considered:
+
 \begin{itemize}
-    \item Describe potential
-    \item Describe further work
-    \item Discuss potential for heuristic approaches
+    \item Modelling choices of patients;
+    \item Modelling choices of managers.
 \end{itemize}
+
+The effect of stochasticity in healthcare systems is well understood and there is a wealth of research to match this.
+The effect of individual behaviour is less understood.
+Game theory and Price of Anarchy analysis offers one way to measure this effect.
+
+Importantly, here are a variety of further avenues for this exciting area of research:
+
+\begin{itemize}
+    \item Games involving players from different parts of a hospital and/or multiple hospitals;
+    \item Machine loading games which can be applied to scheduling tasks;
+    \item Further policy informing work.
+\end{itemize}
+
+With regards to methodological approaches there are a variety of tools available.
+
+Firstly, one can model particular systems with parameters corresponding to the strategies of players (similar to the work described in Section \cite{sec:managinghospitals}).
+Secondly, there are specific game theoretic models that can be applied directly to healthcare systems (similar to the work described in Section \cite{sec:choosingqueues}).
+Finally there are also a variety of novel approaches that can be used such as using evolutionary game theoretic models.
+Specific heuristic approaches relevant to Markov Decision Process in both optimal and selfish calculations offer interesting avenues for research.
+
+The fact that optimal behaviour and selfish behaviour are two sides of the same coin is well understood in unobservable queues.
+Finding similar connections in observable queues is an open research problem.
 
 \newpage
 \bibliographystyle{plain}
