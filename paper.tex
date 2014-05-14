@@ -118,9 +118,9 @@ Section \ref{sec:conclusion} will conclude with a summary and thoughts for furth
 
 \section{Choosing queues}\label{sec:choosingqueues}
 
-This section describes how patient choices between various congestion affected services may be modelled.
+This section describes how patient choices between various congestion affected service centres may be modelled.
 In particular the situation shown diagrammatically in Figure \ref{fig:choices} is considered: patients have a choice amongst $M/M/c$ queues.
-Each $M/M/c$ queue corresponds to a (simple) model of a Hospital (or indeed any other public service facility).
+Each $M/M/c$ queue corresponds to a (simple) model of a hospital (or indeed any other public service facility).
 
 \begin{figure}[!hbtp]
 \begin{center}
@@ -150,11 +150,11 @@ $\lambda_{ij}$ for $i\in[m],\;j\in[n]$& Traffic from source $i$ to service cente
 \end{center}
 \end{figure}
 
-There are two approaches to solving this problem: assuming that patients observe or not the system states before choosing a facility.
-A rigorous comparison of these two approaches for individuals choosing to join an $M/M/1$ queue is given in \cite{shone2013comparisons}.
+There are two approaches to modelling this situation: assuming that patients observe or not the system state before choosing a facility.
+A rigorous comparison of these two approaches for individuals choosing to join(or not) an $M/M/1$ queue is given in \cite{shone2013comparisons}.
 
 An unobservable study is given in \cite{Knight2013} where routing games \cite{Roughgarden2005} are used to study the system described.
-The routing game used is shown in \ref{fig:routinggame}.
+The routing game used is shown in Figure \ref{fig:routinggame}.
 
 \begin{figure}[!hbtp]
 \begin{center}
@@ -176,7 +176,8 @@ The Nash flow corresponding to the flow at which all traffic from a given source
 \Phi(\lambda)=\sum_{i=1}^m\alpha_i\sum_{j}^nd_{ij}\lambda_{ij}+\sum_{j=1}^n\int_0^{\sum_{i=1}^m\lambda_{ij}}w_j(x)dx+\sum_{i=1}^m\beta_i\left(\Lambda_i-\sum_{j=1}^n\lambda_{ij}\right)
 \label{Phi}\end{equation}
 
-To be able to obtain the PoA for a given instance the following mathematical program must be solved:
+As a utility function $w_i$ is taken to be the mean waiting time in an $M/M/c$ queue.
+From known results on convexity of this measure \cite{} the following optimisation problems can be solved straightforwardly so as to be able to obtain the PoA for a given instance:
 
 $$\begin{array}{l@{\hspace{2cm}}l}\text{OPTMP:}&\text{NASHMP:}\\
 \text{minimise }(\ref{C})&\text{minimise }(\ref{Phi})
@@ -194,6 +195,8 @@ such that:
 
 In \cite{Knight2013} various theoretical results are proven with regards to the effect of worth of service on the PoA but also with regards to demand.
 The profile of Figure \ref{fig:poaprofile} is shown to hold in general.
+A system under very high or very low demand will not suffer greatly from the removal of central control.
+Most public service systems are however built to match demand which implies a large PoA.
 
 \begin{figure}[!hbtp]
 \begin{center}
@@ -202,16 +205,15 @@ The profile of Figure \ref{fig:poaprofile} is shown to hold in general.
 \caption{General profile of PoA.}\label{fig:poaprofile}
 \end{figure}
 
-Further to the theoretical consideration the PoA was calculated for a large case study using Hospital in Wales offering knee surgeries.
-A high PoA was calculated for the current demand.
+Further to the theoretical consideration the PoA was calculated for a large case study using Hospital in Wales offering knee surgeries and a high PoA was calculated for the current demand which verifies the previous observation.
 
-To consider systems where individuals are able to observe the system there are two approaches: the first is to use a simulation based approach that allows individuals to choose their most desirable queue.
-One such approach that was considered specifically in the context of healthcare was considered in \cite{Knight2010}.
+To consider systems where individuals are able to observe the system (before making a decision) there are two approaches: the first is to use a simulation based approach that allows individuals to choose their most desirable queue.
+One such piece of work that was considered specifically in the context of healthcare is \cite{Knight2010}.
 
 Given that individuals will consider a simple selfish decision rule this approach is relatively straightforward and can also be considered using straightforward analytical Markov models.
-The difficulty with this approach is appears when attempting to obtain the PoA.
+The difficulty with this approach appears when attempting to obtain the PoA which requires an optimal routing decision.
 
-In \cite{Shone2014} various dynamic programming and approximate dynamic programming techniques are proposed that are able to not only give an optimal policy but also prove the following observation:
+In \cite{Shone2014} various dynamic programming and approximate dynamic programming techniques are proposed that are able to not only give an optimal policy but also prove the following observation holds once again:
 
 \begin{center}
 \textit{Selfish users make busier systems.}
