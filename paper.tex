@@ -88,12 +88,16 @@ Patient Flow, Game Theory, Queueing Theory
 
 The best known work applying Game Theory to Healthcare is Roth's Noble prize winning work \cite{Roth}.
 This work uses matching game algorithms to match medical interns to hospitals.
-The purpose of this paper is to discuss some work relevant to congestion and healthcare.
+The purpose of this paper is to discuss some work relevant to a different area of healthcare: congestion.
 
 Understanding the effect of selfish individuals in queueing systems can be traced back to a series of short communications between Leeman \cite{Leeman1964,Leeman1965} and Saaty \cite{Saaty1965}.
 
 In \cite{Adler1969,Bell1983,Edelson1971,Knudsen1972,Luski1976,Naor1969,Yechiali1972} a variety of models are discussed that obtain optimal and equilibrium behaviour in situations where individuals can choose between a best queue to join.
-Most of the work considers these systems in a theoretical context.
+Most of the work considers these systems in a theoretical context but often comes to a common conclusion:
+
+\begin{center}
+\textit{Selfish users make busier systems.}
+\end{center}
 
 Most research where game theory is applied in healthcare has mainly concentrated on Emergency Departments (EDs) and how to deal with diversions of patients and ambulances.
 In \cite{Hagtvedt2009} cooperative strategies for hospitals are considered, in order to reduce occurrences when ambulances are turned away due to the ED being full.
@@ -102,15 +106,15 @@ Each ED aims to minimise the expected waiting time of its patients (walk-ins and
 Decentralised decision making in the network is modelled as a non-cooperative game.
 
 The degree of central control that should be exercised is a very important question to be considered by governments and/or policy makers.
-What is the effect of allowing individuals to choose service provider?
+How do we measure the effect of selfish behaviour?
 
 This is a question that is answered using the Game theoretical concept referred to as the \textit{Price of Anarchy} (PoA).
-This was first defined in \cite{Koutsoupias2009} but an excellent introduction is given in \cite{Roughgarden2005}.
+This was first defined in \cite{Koutsoupias2009} but an excellent overview is given in \cite{Roughgarden2005}.
 The PoA is defined as the ratio of the selfish utility to the optimal utility.
 
-Section \label{sec:choosingqueues} will discuss some PoA analysis applied to individuals choosing between queues.
-Section \label{sec:managingqueues} will discuss similar analysis in the case of selfish behaviour related to the management of queues.
-Section \label{sec:conclusion} will conclude with a summary and thoughts for further work.
+Section \ref{sec:choosingqueues} will discuss some PoA analysis applied to individuals choosing between queues.
+Section \ref{sec:managingqueues} will discuss similar analysis in the case of selfish behaviour related to the management of queues.
+Section \ref{sec:conclusion} will conclude with a summary and thoughts for further work.
 
 \section{Choosing queues}\label{sec:choosingqueues}
 
