@@ -86,7 +86,7 @@ Patient Flow, Game Theory, Queueing Theory
 
 \section{Introduction}
 
-The best known work applying Game Theory to Healthcare is Roth's Noble prize winning work \cite{Roth}.
+The best known work applying Game Theory to Healthcare is Roth's Noble prize winning work \cite{roth_redesign_1999}.
 This work uses matching game algorithms to match medical interns to hospitals.
 The purpose of this paper is to discuss some work relevant to a different area of healthcare: congestion.
 
@@ -124,7 +124,36 @@ Each $M/M/c$ queue corresponds to a (simple) model of a hospital (or indeed any 
 
 \begin{figure}[!hbtp]
 \begin{center}
-\includegraphics[width=.7\textwidth]{./Images/Hospital_Choices.pdf}
+
+\begin{tikzpicture}
+\node (S1) at (0,0) [circle, draw=blue, fill=blue!5] {$\Lambda_1$};
+\node (S2) at (0,-2) [circle, draw=blue, fill=blue!5] {$\Lambda_2$};
+\node (S3) at (0,-4)  {$\vdots$};
+\node (S4) at (0,-6) [circle, draw=blue, fill=blue!5] {$\Lambda_m$};
+
+\node (B1) at (-5,0) [circle, draw=blue, fill=red!5] {$\beta_1$};
+\node (B2) at (-5,-2) [circle, draw=blue, fill=red!5] {$\beta_2$};
+\node (B3) at (-5,-4)  {$\vdots$};
+\node (B4) at (-5,-6) [circle, draw=blue, fill=red!5] {$\beta_m$};
+
+\node (F1) at (5,-1) [circle, draw=blue, fill=red!5] {$w_1$};
+\node (F3) at (5,-3)  {$\vdots$};
+\node (F2) at (5,-5) [circle, draw=blue, fill=red!5] {$w_n$};
+
+\draw [->, red] (S1) -- (B1);
+\draw [->, red] (S2) -- (B2);
+\draw [->, red] (S4) -- (B4);
+
+\draw [->, red] (S1) -- (F1) node [midway, above, sloped, black] (TextNode) {$\lambda_{11}$};
+\draw [->, red] (S1) -- (F2) node [midway, above, sloped, black] (TextNode) {$\lambda_{1n}$};
+\draw [->, red] (S2) -- (F1) node [midway, above, sloped, black] (TextNode) {$\lambda_{21}$};
+\draw [->, red] (S2) -- (F2) node [near start, above, sloped, black] (TextNode) {$\lambda_{2n}$};
+\draw [->, red] (S4) -- (F1) node [near start, above, sloped, black] (TextNode) {$\lambda_{m1}$};
+\draw [->, red] (S4) -- (F2) node [midway, above, sloped, black] (TextNode) {$\lambda_{mn}$};
+
+\node at (-2.5,-7) {Balk};
+\node at (2.5,-7) {Seek Service};
+\end{tikzpicture}
 \end{center}
 \caption{Routing patients from $m$ hospitals to $n$ services.}\label{fig:choices}
 \end{figure}
@@ -177,7 +206,7 @@ The Nash flow corresponding to the flow at which all traffic from a given source
 \label{Phi}\end{equation}
 
 As a utility function $w_i$ is taken to be the mean waiting time in an $M/M/c$ queue.
-From known results on convexity of this measure \cite{} the following optimisation problems can be solved straightforwardly so as to be able to obtain the PoA for a given instance:
+From known results on convexity of this measure \cite{lee_note_1983} the following optimisation problems can be solved straightforwardly so as to be able to obtain the PoA for a given instance:
 
 $$\begin{array}{l@{\hspace{2cm}}l}\text{OPTMP:}&\text{NASHMP:}\\
 \text{minimise }(\ref{C})&\text{minimise }(\ref{Phi})
