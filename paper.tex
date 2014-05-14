@@ -86,27 +86,25 @@ Patient Flow, Game Theory, Queueing Theory
 
 \section{Introduction}
 
-The best known work applying Game Theory to Healthcare is Roth's Noble prize winning work \cite{roth_redesign_1999}.
-This work uses matching game algorithms to match medical interns to hospitals.
-The purpose of this paper is to discuss some work relevant to a different area of healthcare: congestion.
+Arguably, the best known work applying Game Theory to Healthcare is Roth's Noble prize winning work \cite{roth_redesign_1999}.
+This work uses matching game algorithms to assign medical interns to hospitals.
+The purpose of the present manuscript is to discuss some work relevant to a different area of healthcare: congestion.
 
 Understanding the effect of selfish individuals in queueing systems can be traced back to a series of short communications between Leeman \cite{Leeman1964,Leeman1965} and Saaty \cite{Saaty1965}.
 
 In \cite{Adler1969,Bell1983,Edelson1971,Knudsen1972,Luski1976,Naor1969,Yechiali1972} a variety of models are discussed that obtain optimal and equilibrium behaviour in situations where individuals can choose between a best queue to join.
-Most of the work considers these systems in a theoretical context but often comes to a common conclusion:
+Most of the cited papers consider these systems in a theoretical context but most come to a common conclusion:
 
 \begin{center}
 \textit{Selfish users make busier systems.}
 \end{center}
 
-Most research where game theory is applied in healthcare has mainly concentrated on Emergency Departments (EDs) and how to deal with diversions of patients and ambulances.
-In \cite{Hagtvedt2009} cooperative strategies for hospitals are considered, in order to reduce occurrences when ambulances are turned away due to the ED being full.
+Research where game theory and queueing theory is applied to healthcare has mainly concentrated on Emergency Departments (EDs) and how to deal with diversions of patients and ambulances.
+In \cite{Hagtvedt2009} cooperative strategies for hospitals are considered, in order to reduce occurrences where ambulances are turned away due to the ED being full.
 In \cite{Deo2011} a queueing network model of two EDs is proposed to study the network effect of ambulance diversion.
 Each ED aims to minimise the expected waiting time of its patients (walk-ins and ambulances) and chooses its diversion threshold based on the number of patients at its location.
-Decentralised decision making in the network is modelled as a non-cooperative game.
 
-The degree of central control that should be exercised is a very important question to be considered by governments and/or policy makers.
-How do we measure the effect of selfish behaviour?
+In these settings, how do we measure the effect of selfish behaviour?
 
 This is a question that is answered using the Game theoretical concept referred to as the \textit{Price of Anarchy} (PoA).
 This was first defined in \cite{Koutsoupias2009} but an excellent overview is given in \cite{Roughgarden2005}.
@@ -114,7 +112,7 @@ The PoA is defined as the ratio of the selfish utility to the optimal utility.
 
 Section \ref{sec:choosingqueues} will discuss some PoA analysis applied to individuals choosing between queues.
 Section \ref{sec:managingqueues} will discuss similar analysis in the case of selfish behaviour related to the management of queues.
-Section \ref{sec:conclusion} will conclude with a summary and thoughts for further work.
+Finally, Section \ref{sec:conclusion} will conclude with a summary and thoughts for further work.
 
 \section{Choosing queues}\label{sec:choosingqueues}
 
@@ -158,7 +156,7 @@ Each $M/M/c$ queue corresponds to a (simple) model of a hospital (or indeed any 
 \caption{Routing patients from $m$ hospitals to $n$ services.}\label{fig:choices}
 \end{figure}
 
-The parameters of this system are shown in Table \ref{tab:parameters}.
+The parameters of this system are summarised in Table \ref{tab:parameters}.
 
 \begin{table}[!hbtp]
 \begin{center}
@@ -180,7 +178,7 @@ $\lambda_{ij}$ for $i\in[m],\;j\in[n]$& Traffic from source $i$ to service cente
 \end{table}
 
 There are two approaches to modelling this situation: assuming that patients observe or not the system state before choosing a facility.
-A rigorous comparison of these two approaches for individuals choosing to join(or not) an $M/M/1$ queue is given in \cite{shone2013comparisons}.
+A rigorous comparison of these two approaches for individuals choosing to join (or not) an $M/M/1$ queue is given in \cite{shone2013comparisons}.
 
 An unobservable study is given in \cite{Knight2013} where routing games \cite{Roughgarden2005} are used to study the system described.
 The routing game used is shown in Figure \ref{fig:routinggame}.
@@ -226,7 +224,7 @@ The corresponding cost function for a given traffic flow $\lambda$ is given by:
 C(\lambda)=\sum_{i=1}^m\alpha_i\sum_{j}^nd_{ij}\lambda_{ij}+\sum_{j=1}^n\sum_{i=1}^m\lambda_{ij}w_j\left(\sum_{i=1}^m\lambda_{ij}\right)+\sum_{i=1}^m\beta_i\left(\Lambda_i-\sum_{j=1}^n\lambda_{ij}\right)
 \label{C}\end{equation}
 
-The constant $\alpha_i\in\mathbb{R}_{\geq0}$ is simply a weighting statistic for the relative importance of travel distances to the other factors (once again allowing for this coefficient to be dependent on population partitioning).
+The constant $\alpha_i\in\mathbb{R}_{\geq0}$ is simply a weighting statistic for the relative importance of travel distances to the other factors.
 The Nash flow corresponding to the flow at which all traffic from a given source travels on minimal paths can be shown to be given by the flow that minimises the following function:
 
 \begin{equation}
@@ -284,7 +282,7 @@ Most public service systems are however built to match demand which implies a la
 \caption{General profile of PoA.}\label{fig:poaprofile}
 \end{figure}
 
-Further to the theoretical consideration the PoA was calculated for a large case study using Hospital in Wales offering knee surgeries and a high PoA was calculated for the current demand which verifies the previous observation.
+Further to the theoretical consideration the PoA was calculated for a large case study using hospitals in Wales offering knee surgeries and a high PoA was calculated for the current demand which verifies the previous observation.
 
 To consider systems where individuals are able to observe the system (before making a decision) there are two approaches: the first is to use a simulation based approach that allows individuals to choose their most desirable queue.
 One such piece of work that was considered specifically in the context of healthcare is \cite{Knight2010}.
@@ -303,11 +301,12 @@ In the next section selfish congestion related decisions by managers will be con
 \section{Managing queues}\label{sec:managingqueues}
 
 Following recent analysis of two critical care units (CCUs) it was found that only a state dependent queueing model (where the demand rate to each CCU depended on the state of the CCU) would give a valid representation of the system.
-Upon discussion with the CCU managers in question, it was acknowledged that certain behavioural control of admissions occurred, even if it was at a subconscious level.
+Upon discussion with the CCU managers in question, it was acknowledged that a certain behavioural control of admissions, even if it was at a subconscious level.
 Indeed when one CCU was at high capacity it was likely to divert patients to the other CCU.
 
 In \cite{knight2014} a normal form game consideration of this situation is given akin to the work on EDs in \cite{Deo2011}.
-A pictorial representation of the situation considered is given in Figure \ref{diagramofdiversion} where each CCU can choose a capacity threshold at which to divert patients, and Table \ref{tab:parameters1} shows the parameters used.
+A pictorial representation of the situation considered is given in Figure \ref{diagramofdiversion} where each CCU can choose a capacity threshold at which to divert patients.
+Table \ref{tab:parameters1} shows the parameters used.
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -345,7 +344,7 @@ $\mu_{h}$&Service rate of CCU\\
 \end{table}
 
 The capacity thresholds are denoted as $K_{h}\in\mathbb{Z}$ for $h\in\{1,2\}$, once diverted the arrival rate is modified as shown in Figure \ref{arrivalrateregions}.
-In general it is assumed that $\lambda_h^{(a)}\geq \lambda_{h}^{(b)}, \lambda_{h}^{(c)}\geq \lambda_{h}^{(d)}$ (so that setting a diversion threshold implies a reduction of patient flow).
+In general it is assumed that setting a diversion threshold implies a reduction of patient flow.
 Note that $0\leq K_h\leq c_h$.
 
 \begin{figure}[!htbp]
@@ -375,8 +374,8 @@ Note that $0\leq K_h\leq c_h$.
 Throughput of patients is a natural choice of utility for the game theoretic model given that most hospitals are financially rewarded per served patient \cite{Pate2009}.
 For each threshold pair $(K_{1},K_{2})$, the utilisation rate $U_h$ and throughput $T_h$ can easily be obtained for each CCU: $h\in\{\text{1},\text{2}\}$, using the following formulas:
 
-$$U_{h}={{\sum_{n=0}^{c_h} nP^{(h)}(n)}\over{c_{h}}}$$
-$$T_{h}=\mu_h \sum _{n=0}^{c_h} nP^{(h)}(n)$$
+$$U_{h}={{\sum_{n=0}^{c_h} nP^{(h)}_n}\over{c_{h}}}$$
+$$T_{h}=\mu_h \sum _{n=0}^{c_h} nP^{(h)}_n$$
 
 where $P^{(h)}=P^{(h)}(K_{1},K_{2})$ is the steady state probability distribution function (obtained from by analysing the Markov chain of Figure \ref{mc}).
 
@@ -397,8 +396,8 @@ As such a Nash Equilibrium is not guaranteed by traditional game theoretical res
 In \cite{knight2014} theoretical results are proved that guarentee pure strategy Nash equilibria in certain cases.
 
 Using this and structural properties of the problem a Nash equilibria can be found.
-A variety of numerical results are shown giving the PoA for various scenarios but importantly this module can aid in the informed assignment of a policy $t$.
-Figure \ref{mintargetvdemandmodel2} show the smallest value of $t$ that gives a PoA for a variation of demand ($x=0$ corresponds to the actual demand of the system in consideration).
+A variety of numerical results are shown giving the PoA for various scenarios but importantly this approach can aid in the informed assignment of a policy $t$.
+For example, figure \ref{mintargetvdemandmodel2} show the smallest value of $t$ that gives a PoA for a variation of demand ($x=0$ corresponds to the actual demand of the system in consideration).
 This value was obtained in a model where CCUs could divert demand unless both CCUs are in diversion in which case CCUs must deal with their own demand.
 
 \begin{figure}[!htbp]
@@ -409,7 +408,7 @@ This value was obtained in a model where CCUs could divert demand unless both CC
 \end{figure}
 
 We see that a value of $t=.72$ is recommended for the actual demand of the system.
-While this value does not necessarily give an exact value worth installing as policy the methodology gives a valid approach to indicating a sensible target.
+While this value does not necessarily give an exact target worth installing as policy the methodology gives a valid approach to indicating a sensible target.
 Furthermore, as demand increases, we see that the recommended target value increases so as to align the goals of the facilities align with the goals of the overall system.
 
 \section{Conclusions}\label{sec:conclusion}
